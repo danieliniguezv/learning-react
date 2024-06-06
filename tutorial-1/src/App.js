@@ -8,7 +8,7 @@ function App() {
   /*
   * This is JSX. JSX stands for JavaScript XML. It allows to write
   * HTML in REACT. Code in between brackets is rendered as JavaScript.
-  *
+  * The tags between the div tags are known as functional components.
   * */
 
   return (
