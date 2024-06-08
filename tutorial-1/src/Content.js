@@ -15,12 +15,17 @@ const Content = () => {
     console.log("You clicked it!");
   }
 
+  const handleClick1 = (e) => {
+    console.log(e);
+  }
+
   return (
     <main>
       <p>
         Hello {handleNameChange()}!
       </p>
       <button onClick={handleClick}>Click It</button>
+      <button onClick={(e) => handleClick1(e)}>Click It</button>
     </main>
   )
 }
