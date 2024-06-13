@@ -1,32 +1,45 @@
 import { useState } from 'react';
+import { FaTrashAlt } from 'react-icons/fa';
 
 const Content = () => {
-  /*
-  * The `handleNameChange` function that returns a random name from an array. 
-  * The function is then called and rendered by being placed between brackets. 
-  * Every time the page is refrseshed a different name will be displayed.
-  * */
-  const [name, setState] = useState('Daniel');
-  const [count, setCount] = useState(1);
+  const [albums, setAlbums] = useState([
+    {
+      id: 1,
+      albumName: "Tragic Kingdom"
+    },
+    {
+      id: 2,
+      albumName: "Why Do They Rock So Hard?"
+    },
+    {
+      id: 3,
+      albumName: "Supernatural"
+    }
+  ]);
 
-  const handleNameChange = () => {
-    const names =  ["Daniel", "Roberto", "Rocky"];
-    const int = Math.floor(Math.random() * 3);
-    setState(names[int]);
-  }
-
-  const handleClick = () => {
-    setCount(count + 1);
-    console.log(count);
+  const handleAlbumRewrite = (id) => {
+    const newAlbum = albums.map((album) => album.id === id ? {...album, albumName: "Cuando Los Ángeles Lloran"} : album);
+    setAlbums(newAlbum);
   }
 
   return (
     <main>
-      <p>
-        Hello {name}!
-      </p>
-      <button onClick={handleNameChange}>Change Name</button>
-      <button onClick={handleClick}>Increment Count</button>
+      <ul>
+        {albums.map((album) => (
+          <li className="album" key={album.id}>
+            <p>
+              {album.albumName} &nbsp;
+              <span>
+                <FaTrashAlt
+                  role="button"
+                  tabIndex="0"
+                />
+              </span>
+            </p>
+          </li>
+        ))}
+      </ul>
+      <button onClick={() => handleAlbumRewrite(1)}>Rewrite Album</button>
     </main>
   )
 }
