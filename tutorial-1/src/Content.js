@@ -17,7 +17,7 @@ const Content = () => {
     }
   ]);
 
-  const albumRewrite = (id) => {
+  const handleAlbumRewrite = (id) => {
     const newAlbum = albums.map((album) => album.id === id ? {...album, albumName: "Cuando Los Ángeles Lloran"} : album);
     setAlbums(newAlbum);
   }
@@ -39,7 +39,7 @@ const Content = () => {
           </li>
         ))}
       </ul>
-      <button onClick={() => albumRewrite(1)}>Rewrite Album</button>
+      <button onClick={() => handleAlbumRewrite(1)}>Rewrite Album</button>
     </main>
   )
 }
