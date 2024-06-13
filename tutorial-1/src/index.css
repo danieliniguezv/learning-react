@@ -55,3 +55,42 @@ footer {
   display: grid;
   place-content: center;
 }
+
+ul {
+  width: 100%;
+  list-style: none;
+  padding: 0 0.25rem 0.25rem;
+}
+
+ul li::before {
+  content: "\200B";
+}
+
+.album {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  margin: 0.25rem 0;
+  background-color: #B8B871;
+  color: aliceblue;
+}
+
+.album:first-child {
+  margin: 0;
+}
+
+.album svg {
+  width: 48px;
+  min-width: 48px;
+  height: 36px;
+  font-size: 1rem;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.album svg:focus, 
+.album svg:hover {
+  color: darkolivegreen;
+  outline: none;
+}
