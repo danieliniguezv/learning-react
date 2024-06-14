@@ -18,28 +18,40 @@ const Content = () => {
   ]);
 
   const handleAlbumRewrite = (id) => {
-    const newAlbum = albums.map((album) => album.id === id ? {...album, albumName: "Cuando Los Ángeles Lloran"} : album);
-    setAlbums(newAlbum);
+    const newAlbumList = albums.map((album) => album.id === id ? {...album, albumName: "Cuando Los Ángeles Lloran"} : album);
+    setAlbums(newAlbumList);
+  }
+
+  const handleDeleteAlbum = (id) => {
+    const newAlbumList = albums.filter((album) => album.id !== id);
+    setAlbums(newAlbumList);
   }
 
   return (
     <main>
-      <ul>
-        {albums.map((album) => (
-          <li className="album" key={album.id}>
-            <p>
-              {album.albumName} &nbsp;
-              <span>
-                <FaTrashAlt
-                  role="button"
-                  tabIndex="0"
-                />
-              </span>
-            </p>
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => handleAlbumRewrite(1)}>Rewrite Album</button>
+      {albums.length ? (
+        <>
+          <ul>
+            {albums.map((album) => (
+              <li className="album" key={album.id}>
+                <p>
+                  {album.albumName} &nbsp;
+                  <span>
+                    <FaTrashAlt
+                      role="button"
+                      onClick={() => handleDeleteAlbum(album.id)}
+                      tabIndex="0"
+                    />
+                  </span>
+                </p>
+              </li>
+            ))}
+          </ul>
+          <button onClick={() => handleAlbumRewrite(1)}>Rewrite Album</button>
+        </>
+      ) : (
+        <p>Your list is empty!</p>
+      )}
     </main>
   )
 }
