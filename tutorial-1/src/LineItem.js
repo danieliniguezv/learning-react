@@ -10,6 +10,7 @@ const LineItem = ({ album, handleDelete }) => {
             role="button"
             onClick={() => handleDelete(album.id)}
             tabIndex="0"
+            aria-label={`Delete ${album.albumName}`}
           />
         </span>
       </p>
