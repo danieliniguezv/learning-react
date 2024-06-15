@@ -1,10 +1,10 @@
 import Header from './Header';
 import Content from './Content';
+import RewriteItem from './RewriteItem';
 import Footer from './Footer';
 import { useState } from 'react';
 
 function App() {
-
   const [albums, setAlbums] = useState([
     {
       id: 1,
@@ -36,8 +36,10 @@ function App() {
       <Header title="Albums"/>
       <Content 
         albums={albums}
-        handleRewrite={handleRewrite}
         handleDelete={handleDelete}
+      />
+      <RewriteItem 
+        handleRewrite={handleRewrite}
       />
       <Footer length={albums.length}/>
     </div>
