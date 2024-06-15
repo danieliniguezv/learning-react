@@ -42,7 +42,7 @@ main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   overflow-y: auto;
 }
@@ -54,6 +54,14 @@ footer {
   color: aliceblue;
   display: grid;
   place-content: center;
+}
+
+.rewriteButton {
+  height: 25vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 ul {
