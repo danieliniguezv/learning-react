@@ -1,28 +1,13 @@
-import { FaTrashAlt } from 'react-icons/fa';
+import ItemList from './ItemList';
 
-const Content = ({ albums, handleRewrite, handleDelete }) => {
+const Content = ({ albums, handleDelete }) => {
   return (
     <main>
       {albums.length ? (
-        <>
-          <ul>
-            {albums.map((album) => (
-              <li className="album" key={album.id}>
-                <p>
-                  {album.albumName} &nbsp;
-                  <span>
-                    <FaTrashAlt
-                      role="button"
-                      onClick={() => handleDelete(album.id)}
-                      tabIndex="0"
-                    />
-                  </span>
-                </p>
-              </li>
-            ))}
-          </ul>
-          <button onClick={() => handleRewrite(1)}>Rewrite Album</button>
-        </>
+        <ItemList 
+          albums={albums}
+          handleDelete={handleDelete}
+        />
       ) : (
         <p>Your list is empty!</p>
       )}
